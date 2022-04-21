@@ -1,6 +1,8 @@
 export default function Button({
   children: description = 'Descrição do Botão',
   onClick = null,
+  colorClass = 'bg-gray-200',
+  type = 'button',
 }) {
   function handleButtonClick() {
     if (onClick) {
@@ -9,8 +11,9 @@ export default function Button({
   }
   return (
     <button
-      className="bg-gray-200 p-2 m-1 rounded-md"
+      className={`${colorClass} p-2 m-1 rounded-md`}
       onClick={handleButtonClick}
+      type={type}
     >
       {description}
     </button>
