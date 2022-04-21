@@ -4,12 +4,19 @@ export default function RadioButton({
   id = getNewId(),
   name = 'radioButtonName',
   checked = false,
+  onClick = null,
   onChange = null,
   children: radioButtonDescription = 'Descrição do Botão',
 }) {
   function handleRadioButtonChange() {
     if (onChange) {
       onChange();
+    }
+  }
+
+  function handleRadioButtonClick() {
+    if (onClick) {
+      onClick();
     }
   }
 
@@ -21,6 +28,7 @@ export default function RadioButton({
         name={name}
         checked={checked}
         onChange={handleRadioButtonChange}
+        onClick={handleRadioButtonClick}
       />
       <label htmlFor={id}>{radioButtonDescription}</label>
     </div>

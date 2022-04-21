@@ -17,14 +17,21 @@ export default function FlashCardPage() {
     setAllCards(shuffledCards);
   }
 
-  function toggleRadioClick() {
-    setShowAllTitle(currentShowAllTitle => !currentShowAllTitle);
+  function setAllTitle() {
+    toggleRadioClick();
+  }
 
+  function setAllDesc() {
+    toggleRadioClick(false);
+  }
+
+  function toggleRadioClick(status = true) {
     const updatedCards = [...allCards].map(c => ({
       ...c,
-      showTitle: !showAllTitle,
+      showTitle: status,
     }));
 
+    setShowAllTitle(status);
     setAllCards(updatedCards);
   }
 
@@ -38,9 +45,11 @@ export default function FlashCardPage() {
 
   return (
     <>
-      <Header>flash-cards-v1.1</Header>
+      <Header>flash-cards-v1.1.1</Header>
       <Main>
-        <div className="text-center m-4">Lifting State Up</div>
+        <div className="text-center m-4">
+          Lifting State Up - RadioButton define estado sempre que clicado
+        </div>
         <div className="text-center mb-4">
           <Button onClick={handleButtonClick}>Shuffle Cards</Button>
         </div>
@@ -49,7 +58,8 @@ export default function FlashCardPage() {
             id="radioButtonShowAllTitle"
             name="showInfo"
             checked={showAllTitle}
-            onChange={toggleRadioClick}
+            onClick={setAllTitle}
+            onChange={setAllTitle}
           >
             Show Title
           </RadioButton>
@@ -58,7 +68,8 @@ export default function FlashCardPage() {
             id="radioButtonShowAllDescription"
             name="showInfo"
             checked={!showAllTitle}
-            onChange={toggleRadioClick}
+            onClick={setAllDesc}
+            onChange={setAllDesc}
           >
             Show Description
           </RadioButton>
