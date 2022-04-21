@@ -27,10 +27,10 @@ react-flash-cards-v1 - roteiro
 
 (x) Sincronizar o estado de FlashCardsPage e FlashCard com useEffect
 
-() Comentar e mostrar uma outra alternativa mais elegante para
+(x) Comentar e mostrar uma outra alternativa mais elegante para
    persistir o estado do app (lifting state up)
 
-() Limpar o app para disponibilização, 
+(x) Limpar o app para disponibilização, 
    removendo arquivos "desnecessários",
    como por exemplo a pasta "node_modules". 
    Use a biblioteca rimraf para isso.
